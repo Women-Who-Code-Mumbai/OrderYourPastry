@@ -1,3 +1,33 @@
 <resources>
-    <string name="app_name">Order Your Pastry</string>
+    <string name="app_name">Order Pastry</string>
+    <string name="customizations">Customizations</string>
+    <string name="size">Size</string>
+    <string name="sugar">Sugar</string>
+    <string name="quantity">Quantity</string>
+    <string name="initial_quantity">0</string>
+    <string name="total">Total:</string>
+    <string name="bite">Bite</string>
+    <string name="take_in">Take In</string>
+    <string name="remove">-</string>
+    <string name="add">+</string>
+    <string name="done_msg">Your order is ready!</string>
+    <string name="summary_email_prompt">Tell your friends about us!</string>
+    <string name="send_email">Send Email</string>
+    <string name="email_message">I have ordered yummy pastries. Check out now!</string>
+    <string name="order_summary_email_subject">Orderes fresh pastries!</string>
+
+    <string-array name="pastry_size_array">
+        <item>Small (100gms)</item>
+        <item>Medium (150gms)</item>
+        <item>Large (200gms)</item>
+    </string-array>
+
+
+    <string-array name="sugar_array">
+        <item>100% - Full Sweetness</item>
+        <item>75% - Moderately Sweet</item>
+        <item>50% - Half Sweet</item>
+        <item>25% - Slightly Sweet</item>
+        <item>0% - Not Sweet</item>
+    </string-array>
 </resources>
