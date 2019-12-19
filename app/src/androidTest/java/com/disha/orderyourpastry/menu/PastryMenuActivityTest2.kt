@@ -1,13 +1,54 @@
 package com.disha.orderyourpastry.menu
 
+import androidx.recyclerview.widget.RecyclerView
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.rule.ActivityTestRule
+import com.disha.orderyourpastry.R
+import org.hamcrest.CoreMatchers
+import org.hamcrest.Matchers
 import org.junit.Assert.*
+import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
 
-//TODO: add run with
-class PastryMenuActivityTest2{
+@RunWith(AndroidJUnit4::class)
+class PastryMenuActivityTest2 {
 
-    //TODO: add activity test rule
+    @get:Rule
+    var mActivityTestRule: ActivityTestRule<PastryMenuActivity?> =
+        ActivityTestRule(PastryMenuActivity::class.java)
 
-    //TODO: add test to check items count on recycler view
+    @Test
+    fun checkRecyclerItemsCount() {
+        val recyclerView =
+            mActivityTestRule.activity!!.findViewById(R.id.rv_pastries) as? RecyclerView
+        recyclerView?.adapter?.let {
+            assert(it.itemCount > 0)
+        }
+    }
 
-    //TODO: add test to check set item name matches the data passed item name
+    @Test
+    fun checkRecyclerViewItems_atParticularPosition() {
+        val position = 10
+        Espresso.onView(ViewMatchers.withId(R.id.rv_pastries))
+            .perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                    position,
+                    ViewActions.click()
+                )
+            )
+
+        Espresso.onView(
+            CoreMatchers.allOf(
+                ViewMatchers.withId(R.id.tv_pastry_name),
+                Matchers.not(ViewMatchers.withText(DummyData.getPastryList()[position].pastryName))
+            )
+        )
+
+    }
+
 }
